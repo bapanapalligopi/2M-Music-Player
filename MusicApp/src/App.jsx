@@ -9,7 +9,7 @@ import { PlayerContext } from "./content/PlayerContext";
 function App() {
   const { audioref, track } = useContext(PlayerContext);
   return (
-    <div className="h-screen bg-black">
+    <div className="h-screen bg-black ">
       <div className="h-[90%] flex ">
         <Sidebar />
         <Display />

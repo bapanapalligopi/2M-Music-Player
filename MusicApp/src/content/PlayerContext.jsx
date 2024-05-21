@@ -6,9 +6,10 @@ const PlayerContextProvider = (props) => {
   const audioref = useRef();
   const seekbg = useRef();
   const seekBar = useRef();
-
+  const [HomeClicked, setHomeCliked] = useState(false);
   const [track, setTrack] = useState(songsData[0]);
   const [playStatus, setPlayStatus] = useState(false);
+  const [albumClicked, setAlbumClicked] = useState(false);
   const [time, setTime] = useState({
     currentTime: { second: 0, minute: 0 },
     totalTime: {
@@ -80,6 +81,10 @@ const PlayerContextProvider = (props) => {
     playWithId,
     previous,
     next,
+    HomeClicked,
+    setHomeCliked,
+    albumClicked,
+    setAlbumClicked,
   };
   return (
     <PlayerContext.Provider value={contextValue}>

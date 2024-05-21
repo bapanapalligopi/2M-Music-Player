@@ -1,11 +1,14 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useContext } from "react";
 import { Route, Routes, useLocation } from "react-router";
 import DisplayHome from "./DisplayHome";
 import DisplayAlbum from "./DisplayAlbum";
 import { albumsData } from "../assets/assets";
-
+import Navbar from "./Navbar";
+import logo from "../assets/logo.png";
+import { PlayerContext } from "../content/PlayerContext";
 const Display = () => {
   const displayref = useRef();
+  const { albumClicked, setAlbumClicked } = useContext(PlayerContext);
   /* current location */
   const location = useLocation();
 
@@ -24,11 +27,11 @@ const Display = () => {
       ref={displayref}
       className="w-[100%] m-2 px-6 pt-4 rounded bg-[#121212] text-white overflow-auto lg:w-[75%] lg:ml-0"
     >
-      <Routes>
-        <Route index element={<DisplayHome />} />
+      <DisplayHome />
+      {/* <Routes>
         <Route path="/" element={<DisplayHome />} />
-        <Route path="/album/:id" element={<DisplayAlbum />} />
-      </Routes>
+         <Route path="/album/:id" element={<DisplayAlbum />} />
+      </Routes> */}
     </div>
   );
 };
